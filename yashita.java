@@ -1,91 +1,71 @@
-import java.util.Scanner;
-class normal{
-    public static void main(String[] args) {
-        Scanner calc = new Scanner(System.in);
-     System.out.println("press 1 to add");
-     System.out.println("press 2 to substract");
-     System.out.println("press 3 to multiply");
-     System.out.println("press 4 to divide");
-     System.out.println("press 5 to modulo");
-     System.out.println("press 6 to increment");
-     System.out.println("press 7 to decrement");
-     int choice = calc.nextInt();
-     switch(choice)
-     {
-        case 1 :
-        System.out.println("enter the 1st no");
-        int a = calc.nextInt();
-        System.out.println("enter the 2nd no");
-        int b = calc.nextInt();
-        System.out.println("enter the result");
-        int c = a+b;
-        System.out.println(c);
-        break;
-
-        case 2:
-        System.out.println("enter the 1st no");
-        int d = calc.nextInt();
-        System.out.println("enter the 2nd no");
-        int e = calc.nextInt();
-        System.out.println("enter the result");
-        int f = d-e;
-        System.out.println(f);
-        break;
-
-        case 3:
-        System.out.println("enter the 1st no");
-        int g = calc.nextInt();
-        System.out.println("enter the 2nd no");
-        int h = calc.nextInt();
-        System.out.println("enter the result");
-        int i = g*h;
-        System.out.println(i);
-        break;
-
-        case 4:
-        System.out.println("enter the 1st no");
-        int j = calc.nextInt();
-        System.out.println("enter the 2nd no");
-        int k = calc.nextInt();
-        System.out.println("enter the result");
-        int l = j/k;
-        System.out.println(l);
-        break;
-
-        case 5:
-        System.out.println("enter the 1st no");
-        int m = calc.nextInt();
-        System.out.println("enter the 2nd no");
-        int n = calc.nextInt();
-        System.out.println("enter the result");
-        int o = m%n;
-        System.out.println(o);
-        break;
-
-        case 6:
-        System.out.println("enter the no");
-        int p = calc.nextInt(); 
-        p++;
-        System.out.println(p);
-        break;
-
-        case 7:
-        System.out.println("enter the no");
-        int r = calc.nextInt();
-        r--;
-        System.out.println(r);
-        break;
-        
-
-
+class Newll{
+  public static class Node{
+    int data;
+    Node link;
+    Node(int data){
+      this.data = data;
+    }
+  }
+  public static class Codes{ //Data Structure starts
+    Node head =null;  
+    Node tail = null;
+void at_end(int val){  // First method define
+Node temp = new Node(val);
+    if(head==null){
+      head = temp;
+                        //9-> 4->6->1->8
+    }
+    else{
+      tail.link = temp;
+      
+    }
+    tail = temp;
+    }
+    void display(){     // display method define
+      Node temp = head;
+      while(temp!=null){
+     System.out.print(temp.data+" ");
+      temp = temp.link;
+      
+      }
+      
+    }
+    void at_start(int val){   // at_end method define
+     Node temp = new Node(val);
+     if(head==null){
+      head = temp;
+      tail = temp;
+     }
+     else{
+      temp.link = head;
+      head = temp;
      }
      
-
-
-
     }
-
-
+    void at_between(int idx , int val ){
+      Node x = new Node(val);
+      Node temp = head;
+      for( int i=1;i<= idx-1;i++){
+        temp = temp.link;
+      }
+      x.link = temp.link;
+      temp.link = x;
+    }
+} // Data Structure Complete
+  
+public static void main(String[] args) {
+    Codes cds = new Codes();
+    cds.at_end(8); // 8
+    cds.at_end(14); // 8->14
+    
+   cds.at_start(9); // 9->8->14
+   cds.at_start(5);// 5->9->6->8->14
+  //  cds.display();
+    cds.at_between(1, 6); // 9->6->8->14
+    cds.display();
+    
 
 }
-
+       
+}
+    
